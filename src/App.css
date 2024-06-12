@@ -36,3 +36,49 @@
     transform: rotate(360deg);
   }
 }
+
+.chatbot-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(222, 9, 241);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 300px;
+  width: 100%;
+  max-height: 500px;
+  height: 90%;
+}
+
+.chatbot-close-button {
+  position: absolute;
+  top: 30px;
+  right: 15px;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6616fc;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1001;
+}

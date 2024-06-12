@@ -1,0 +1,39 @@
+.tms-bot-avatar{
+  width: 45px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  background-color: #6616fc;
+  color: #fff;
+  margin-right: 15px;
+}
+
+.bot-header{
+  background-color: #6616fc;
+  font-size: 0.9rem;
+  color: #fff;
+  padding: 15px;
+  border-radius: 3px;
+  text-indent: -95px
+}
+
+.react-chatbot-kit-chat-container {
+  right: 0;
+  left: auto;
+  bottom: 0;
+  margin: 20px;
+  z-index: 1000;
+  max-width: 370px;
+  width: 100%;
+}
+
+.react-chatbot-kit-chat-inner-container {
+  width: 90%;
+}
+
+.react-chatbot-kit-chat-input-form{
+  width: 90%;
+}
