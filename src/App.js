@@ -8,6 +8,7 @@ import { faComments, faTimes } from '@fortawesome/free-solid-svg-icons';
 import MessageParser from "./MessageParser";
 import ActionProvider from "./ActionProvider";
 import config from "./config";
+import ImageSlider from './ImageSlider/ImageSlider';
 import "./App.css";
 
 export default function App() {
@@ -24,14 +25,15 @@ export default function App() {
   return (
     <div className="App">
       <Header />
-      <h3 style={{ padding: "40px" }}>Thanks For Reading!</h3>
-
+      <ImageSlider />
+      <header className="App-header">
+        <h1>SadaBahar Tours</h1>
+      </header>
       {!showChatbot && (
         <button onClick={toggleChatbot} className="chatbot-toggle-button">
           <FontAwesomeIcon icon={faComments} />
         </button>
       )}
-
       {showChatbot && (
         <div className="chatbot-container">
           <button onClick={closeChatbot} className="chatbot-close-button">
