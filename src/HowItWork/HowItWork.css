@@ -1,0 +1,29 @@
+.how-it-work-container {
+  height: 95vh;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.how-it-work {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.how-it-work img.work-image {
+  width: 600px;
+  display: block;
+  margin: 20px auto;
+}
+
+.how-it-work p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.how-it-work h2,
+.how-it-work h3 {
+  color: #333;
+  margin-top: 10px;
+}
