@@ -1,7 +1,7 @@
 .about-us-container {
-  height: 95vh; /* Full viewport height */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 10px; /* Add some padding for better appearance */
+  height: 95vh;
+  overflow-y: auto;
+  padding: 10px;
 }
 
 .about-us {
@@ -12,15 +12,14 @@
 }
 
 .about-us img.about-image {
-  width: 500px; /* Adjust the image size as needed */
+  width: 500px;
   display: block;
-  margin: 20px auto; /* Center the image and add space below */
+  margin: 20px auto;
 }
 
 .about-us p {
   color: #555;
   line-height: 1.6;
-  /* margin-bottom: 15px; */
 }
 
 .about-us h2,
