@@ -1,0 +1,38 @@
+.footer-container {
+  width: 100%;
+  background-color: #1a2b48;
+  color: white;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: medium;
+}
+
+.footer-content div {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-content div .icon {
+  color: white;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.footer-container a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-container a:hover {
+  text-decoration: underline;
+}

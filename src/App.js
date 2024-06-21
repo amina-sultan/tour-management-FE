@@ -14,6 +14,7 @@ import ActionProvider from "./ActionProvider";
 import config from "./config";
 import "./App.css";
 import WorkWithUs from './WorkWithUs/WorkWithUs';
+import Contact from './Contact/Contact';
 
 export default function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/how" element={<HowItWork />} />
           <Route path="/work" element={<WorkWithUs />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         {!showChatbot && (
           <button onClick={toggleChatbot} className="chatbot-toggle-button">
