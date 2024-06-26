@@ -1,0 +1,97 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.service-list {
+  padding: 20px;
+}
+
+.service-list .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.service-list h1 {
+  color: #22547c;
+  border-bottom: 2px solid #22547c;
+  padding-bottom: 10px;
+}
+
+.create-service-button {
+  padding: 10px 20px;
+  background-color: #22547c;
+  color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.create-service-button:hover {
+  background-color: #1d4469;
+}
+
+.table-container {
+  max-height: 550px;
+  overflow-y: auto;
+  margin: 0 auto;
+}
+
+.service-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ced4da;
+  border-radius: 10px;
+}
+
+.service-list th, .service-list td {
+  padding: 10px;
+  text-align: left;
+  color: black;
+}
+
+.service-list th {
+  background-color: #22547c;
+  color: #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.service-list tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+.service-list tr:nth-child(odd) {
+  background-color: #cccccc;
+  color: black;
+}
+
+.service-list tr:hover {
+  background-color: #a3a3a3;
+}
+
+.action-icon {
+  color: #22547c;
+  cursor: pointer;
+}
+
+.edit-icon {
+  margin-right: 10px;
+}
+
+.delete-icon {
+  margin-left: 10px;
+}
+
+.action-icon:hover {
+  color: #1d4469;
+}
