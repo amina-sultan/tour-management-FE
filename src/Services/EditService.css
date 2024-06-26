@@ -1,0 +1,61 @@
+.edit-service {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.edit-service h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.edit-service form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.edit-service .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-service .form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.edit-service .form-group input,
+.edit-service .form-group select,
+.edit-service .form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.edit-service .form-group input::placeholder,
+.edit-service .form-group textarea::placeholder {
+  color: #999;
+}
+
+.edit-service button {
+  grid-column: span 2;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #22547c;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.edit-service button:hover {
+  background-color:	#1a2b48;
+}

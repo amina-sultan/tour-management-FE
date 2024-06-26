@@ -1,0 +1,61 @@
+.create-service-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.create-service-form input,
+.create-service-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.create-service-form input::placeholder,
+.create-service-form textarea::placeholder {
+  color: #999;
+}
+
+.create-service-form .checkbox-container {
+  align-items: left;
+  margin-bottom: 1rem;
+  margin-left: 20px;
+}
+
+.create-service-form .checkbox-container label {
+  font-size: 1rem;
+  margin-left: -500px;
+  color: #A9A9A9;
+}
+
+.create-service-form button {
+  grid-column: span 2;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #22547c;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.create-service-form button:hover {
+  background-color: #0056b3;
+}
+
+.service-heading{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+}

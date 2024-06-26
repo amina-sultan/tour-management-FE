@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from "./header/Header";
+import Header from './header/Header';
 import AboutUsPage from './AboutUsPage/AboutUsPage';
 import HomePage from './HomePage';
 import HowItWork from './HowItWork/HowItWork';
-import "./styles.css";
+import './styles.css';
 import Chatbot from 'react-chatbot-kit';
 import 'react-chatbot-kit/build/main.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faTimes } from '@fortawesome/free-solid-svg-icons';
-import MessageParser from "./MessageParser";
-import ActionProvider from "./ActionProvider";
-import config from "./config";
-import "./App.css";
+import MessageParser from './MessageParser';
+import ActionProvider from './ActionProvider';
+import config from './config';
+import './App.css';
 import WorkWithUs from './WorkWithUs/WorkWithUs';
 import Contact from './Contact/Contact';
+import CreateServiceFormServices from './Services/CreateServiceForm';
+import ServicesList from './Services/ServiceList';
+import EditService from './Services/EditService';
+import DeleteService from './Services/DeleteService';
 
 export default function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -37,6 +41,10 @@ export default function App() {
           <Route path="/how" element={<HowItWork />} />
           <Route path="/work" element={<WorkWithUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/services" element={<CreateServiceFormServices />} />
+          <Route path="/serviceslist" element={<ServicesList />} />
+          <Route path="/editservice/:id" element={<EditService />} />
+          <Route path="/deleteservice/:id" element={<DeleteService />} />
         </Routes>
         {!showChatbot && (
           <button onClick={toggleChatbot} className="chatbot-toggle-button">
