@@ -28,7 +28,7 @@ const Header = () => {
             onMouseEnter={toggleDropdown}
             onMouseLeave={toggleDropdown}
           >
-            <span><Link to="/">Home</Link></span>
+            <span><Link to="/home">Home</Link></span>
             {dropdown && (
               <ul className="dropdown">
                 <li className="dropdown-option" onClick={closeMobileMenu}>
@@ -56,10 +56,10 @@ const Header = () => {
       </div>
       <ul className="signin-up">
         <li className="sign-in" onClick={closeMobileMenu}>
-          <Link to="#">LOG-IN</Link>
+          <Link to="/login" className="signup-btn" >LOG-IN</Link>
         </li>
         <li onClick={closeMobileMenu}>
-          <Link to="" className="signup-btn">
+          <Link to="/signup" className="signup-btn">
             SIGN-UP
           </Link>
         </li>
