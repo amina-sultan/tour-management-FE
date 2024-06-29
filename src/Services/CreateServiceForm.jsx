@@ -127,7 +127,7 @@ const CreateServiceForm = () => {
             required
           />
         </div>
-        <button type="submit">Create Service</button>
+        <button type="submit" className='create-service-button'>Create Service</button>
       </form>
     </div>
   );
