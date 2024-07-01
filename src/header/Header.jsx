@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as CloseMenu } from "../assets/x.svg";
-import { ReactComponent as MenuIcon } from "../assets/menu.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import "./header.css";
 
@@ -50,7 +48,7 @@ const Header = () => {
             <Link to="/contact">CONTACT</Link>
           </li>
           <li className="option" onClick={closeMobileMenu}>
-            <Link to="#">BLOG</Link>
+            <Link to="/bloglist">BLOG</Link>
           </li>
         </ul>
       </div>

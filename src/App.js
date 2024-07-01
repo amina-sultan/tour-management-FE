@@ -21,6 +21,7 @@ import EditService from './Services/EditService';
 import DeleteService from './Services/DeleteService';
 import Login from './LoginSignup/Login';
 import Signup from './LoginSignup/Signup';
+import BlogList from './Blog/BlogList';
 
 export default function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -43,6 +44,7 @@ export default function App() {
           <Route path="/how" element={<HowItWork />} />
           <Route path="/work" element={<WorkWithUs />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/bloglist" element={<BlogList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/services" element={<CreateServiceFormServices />} />
