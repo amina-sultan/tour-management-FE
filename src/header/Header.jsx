@@ -8,14 +8,13 @@ const Header = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
   const toggleDropdown = () => setDropdown(!dropdown);
 
   return (
     <div className="header">
       <div className="logo-nav">
         <div className="logo-container">
-          <Link to="/" onClick={closeMobileMenu}>
+          <Link to="/">
             <Logo className="logo" />
           </Link>
         </div>
@@ -29,37 +28,38 @@ const Header = () => {
             <span><Link to="/home">Home</Link></span>
             {dropdown && (
               <ul className="dropdown">
-                <li className="dropdown-option" onClick={closeMobileMenu}>
+                <li className="dropdown-option">
                   <Link to="/about">About Us</Link>
                 </li>
-                <li className="dropdown-option" onClick={closeMobileMenu}>
+                <li className="dropdown-option">
                   <Link to="/how">How It Works</Link>
                 </li>
-                <li className="dropdown-option" onClick={closeMobileMenu}>
+                <li className="dropdown-option">
                   <Link to="/work">Work With Us</Link>
                 </li>
               </ul>
             )}
           </li>
-          <li className="option" onClick={closeMobileMenu}>
+          <li className="option">
             <Link to="/serviceslist">SERVICES</Link>
           </li>
-          <li className="option" onClick={closeMobileMenu}>
+          <li className="option">
             <Link to="/contact">CONTACT</Link>
           </li>
-          <li className="option" onClick={closeMobileMenu}>
+          <li className="option">
             <Link to="/bloglist">BLOG</Link>
+          </li>
+          <li className="option">
+            <Link to="/ReviewList">REVIEW</Link>
           </li>
         </ul>
       </div>
       <ul className="signin-up">
-        <li className="sign-in" onClick={closeMobileMenu}>
-          <Link to="/login" className="signup-btn" >LOG-IN</Link>
+        <li className="sign-in">
+          <Link to="/login" className="signup-btn">LOG-IN</Link>
         </li>
-        <li onClick={closeMobileMenu}>
-          <Link to="/signup" className="signup-btn">
-            SIGN-UP
-          </Link>
+        <li>
+          <Link to="/signup" className="signup-btn">SIGN-UP</Link>
         </li>
       </ul>
     </div>

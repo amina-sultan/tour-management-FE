@@ -37,3 +37,8 @@
 .react-chatbot-kit-chat-input-form{
   width: 90%;
 }
+
+.react-chatbot-kit-chat-input{
+ margin-top: 20px;
+ padding: 9.5;
+}

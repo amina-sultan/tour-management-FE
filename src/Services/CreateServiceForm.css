@@ -13,7 +13,7 @@
 .create-service-form input,
 .create-service-form textarea {
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -31,9 +31,16 @@
   margin-left: 20px;
 }
 
+.create-service-form .checkbox-container input[For="checkboxGuid"] {
+  margin-left: -370px;
+  margin-top: 12px;
+  margin-bottom: 5px;
+}
+
 .create-service-form .checkbox-container label {
   font-size: 1rem;
-  margin-left: -500px;
+  margin-left: -150px;
+  margin-top: -25px;
   color: #A9A9A9;
 }
 
@@ -41,6 +48,7 @@
   grid-column: span 2;
   padding: 0.5rem;
   border: none;
+  width: 100%;
   border-radius: 4px;
   background-color: #22547c;
   color: white;

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Header from './header/Header';
 import AboutUsPage from './AboutUsPage/AboutUsPage';
 import HomePage from './HomePage';
@@ -22,6 +24,9 @@ import DeleteService from './Services/DeleteService';
 import Login from './LoginSignup/Login';
 import Signup from './LoginSignup/Signup';
 import BlogList from './Blog/BlogList';
+import AddReview from './Review/AddReview';
+import ReviewList from './Review/ReviewList';
+import EditReview from './Review/EditReview';
 
 export default function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -47,9 +52,13 @@ export default function App() {
           <Route path="/bloglist" element={<BlogList />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/AddReview" element={<AddReview />} />
+          <Route path="/Reviews" element={<AddReview />} />
+          <Route path="/ReviewList" element={<ReviewList />} />
           <Route path="/services" element={<CreateServiceFormServices />} />
           <Route path="/serviceslist" element={<ServicesList />} />
           <Route path="/editservice/:id" element={<EditService />} />
+          <Route path="/editreview/:id" element={<EditReview />} />
           <Route path="/deleteservice/:id" element={<DeleteService />} />
         </Routes>
         {!showChatbot && (
