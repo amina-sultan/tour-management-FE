@@ -72,7 +72,7 @@ const CreateServiceForm = () => {
           />
         </div>
         <div className="checkbox-container">
-          <input
+          <input htmlFor="checkboxGuid"
             type="checkbox"
             name="isRequiredPersonalGuide"
             checked={formData.isRequiredPersonalGuide}
