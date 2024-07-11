@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Review from './Review';
@@ -23,6 +25,10 @@ const ReviewList = () => {
   const handleDeleteReview = async (reviewId) => {
     try {
       await axios.delete(`http://localhost:5260/api/Reviews/${reviewId}`);
+      toast.success('Review deleted successfullly!', {
+      position: "top-right",
+      autoClose: 3000,
+    });
       setReviews((prevReviews) => prevReviews.filter(review => review.Id !== reviewId));
     } catch (error) {
       console.error('Error deleting review:', error);

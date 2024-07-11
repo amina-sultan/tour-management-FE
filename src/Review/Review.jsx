@@ -18,7 +18,7 @@ const Review = ({ review, onDelete }) => {
         <p>{review.Feedback}</p>
         <div className="review-actions">
           <Link to={`/editreview/${review.Id}`}>
-            <FontAwesomeIcon icon={faEdit} className="edit-icon" />
+            <FontAwesomeIcon icon={faEdit} className="edit-icon-review" />
           </Link>
           <button onClick={handleDelete} className="delete-button">
             <FontAwesomeIcon icon={faTrash} className="delete-icon" />

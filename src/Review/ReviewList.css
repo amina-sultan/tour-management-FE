@@ -20,8 +20,8 @@
 
 .review-list-heading {
   font-size: 2em;
-  font-weight: bold;
-  color: #333;
+  font-weight: bolder;
+  color: #22547c;
 }
 
 .add-review-button {
@@ -98,11 +98,11 @@
   right: 10px;
 }
 
-.edit-icon {
+.edit-icon-review {
   color: #007bff;
   cursor: pointer;
   margin-right: 10px;
-  margin-bottom: -11px;
+  margin-bottom: -12px !important;
   font-size: 24px;
 }
 

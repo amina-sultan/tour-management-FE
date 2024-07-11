@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './header/Header';
 import AboutUsPage from './AboutUsPage/AboutUsPage';
@@ -27,6 +27,8 @@ import BlogList from './Blog/BlogList';
 import AddReview from './Review/AddReview';
 import ReviewList from './Review/ReviewList';
 import EditReview from './Review/EditReview';
+import BookingForm from './Booking/BookingForm';
+import Mybooking from './Booking/MyBooking'
 
 export default function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -44,7 +46,7 @@ export default function App() {
       <div className="App">
         <Header />
         <Routes>
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/how" element={<HowItWork />} />
           <Route path="/work" element={<WorkWithUs />} />
@@ -55,6 +57,8 @@ export default function App() {
           <Route path="/AddReview" element={<AddReview />} />
           <Route path="/Reviews" element={<AddReview />} />
           <Route path="/ReviewList" element={<ReviewList />} />
+          <Route path="/BookingForm" element={<BookingForm />} />
+          <Route path="/mybookings" element={<Mybooking />} />
           <Route path="/services" element={<CreateServiceFormServices />} />
           <Route path="/serviceslist" element={<ServicesList />} />
           <Route path="/editservice/:id" element={<EditService />} />
@@ -78,6 +82,7 @@ export default function App() {
             />
           </div>
         )}
+        <ToastContainer />
       </div>
     </Router>
   );

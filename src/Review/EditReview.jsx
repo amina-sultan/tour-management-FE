@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import './EditReview.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditReview = () => {
   const { id } = useParams();
@@ -43,6 +45,10 @@ const EditReview = () => {
     e.preventDefault();
     try {
       await axios.put(`http://localhost:5260/api/Reviews/${id}`, review);
+      toast.success('Review Updated successfullly!', {
+        position: "top-right",
+        autoClose: 3000,
+      });
       navigate('/ReviewList');
     } catch (error) {
       console.error('Error updating review:', error);

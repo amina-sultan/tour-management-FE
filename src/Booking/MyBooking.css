@@ -1,0 +1,48 @@
+.my-bookings-container {
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.booking-list {
+  margin-top: 20px;
+}
+
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.booking-table th, .booking-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.booking-table th {
+  background-color: #22547c;
+  color: white;
+}
+
+.booking-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.booking-table tr:hover {
+  background-color: #ddd;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #22547c;
+  font-weight: bolder;
+}
+
+p {
+  margin: 10px 0;
+}

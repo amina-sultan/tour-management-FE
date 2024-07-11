@@ -1,12 +1,15 @@
+// ServiceList.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import Modal from 'react-modal';
 import './ServiceList.css';
 
 const ServiceList = () => {
   const [services, setServices] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,8 +30,16 @@ const ServiceList = () => {
     navigate(`/deleteservice/${id}`);
   };
 
+  const handleBookNow = (id) => {
+    navigate(`/BookingForm?serviceId=${id}`);
+  };
+
   const handleCreateService = () => {
     navigate('/services');
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -48,6 +59,7 @@ const ServiceList = () => {
               <th>Tour Type</th>
               <th>Description</th>
               <th>Destination ID</th>
+              <th>Book Now</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -61,6 +73,7 @@ const ServiceList = () => {
                 <td>{service.TourType}</td>
                 <td>{service.Description}</td>
                 <td>{service.DestinationId}</td>
+                <td><button className="book-now-button" onClick={() => handleBookNow(service.Id)}>Book Now</button></td>
                 <td>
                   <FontAwesomeIcon icon={faEdit} className="edit-icon action-icon" onClick={() => handleEdit(service.Id)} />
                   <FontAwesomeIcon icon={faTrash} className="delete-icon action-icon" onClick={() => handleDelete(service.Id)} />
@@ -70,6 +83,19 @@ const ServiceList = () => {
           </tbody>
         </table>
       </div>
+      <Modal
+        isOpen={showModal}
+        onRequestClose={closeModal}
+        className="ReactModal__Content"
+        overlayClassName="ReactModal__Overlay"
+      >
+        <h2>Please login or sign up before booking a service</h2>
+        <div className="modal-buttons">
+          <button onClick={() => navigate('/login')}>Login</button>
+          <button onClick={() => navigate('/signup')}>Sign Up</button>
+        </div>
+        <button className="close-button" onClick={closeModal}>Close</button>
+      </Modal>
     </div>
   );
 };

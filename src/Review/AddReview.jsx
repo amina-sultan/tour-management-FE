@@ -3,11 +3,12 @@ import axios from 'axios';
 import './AddReview.css';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddReview = () => {
   const [feedback, setFeedback] = useState('');
   const [image, setImage] = useState(null);
-  const [userId] = useState(4);
   const navigate = useNavigate();
 
   const handleImageChange = (e) => {
@@ -21,16 +22,39 @@ const AddReview = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert('You must be logged in to add a review.');
+      navigate('/login');
+      return;
+    }
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!user) {
+      alert('User information not found. Please log in again.');
+      navigate('/login');
+      return;
+    }
     try {
       const response = await axios.post('http://localhost:5260/api/Reviews', {
         feedback: feedback,
-        userId: userId,
-        imageUrl: image
+        userId: user.Id,
+        imageUrl: image,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+
+      toast.success('Review added successfully!', {
+        position: "top-right",
+        autoClose: 3000,
       });
       navigate('/ReviewList');
       console.log(response.data);
     } catch (error) {
-      console.error('Error creating review:', error.response.data);
+      console.error('Error creating review:', error.response?.data || error.message);
     }
   };
 
