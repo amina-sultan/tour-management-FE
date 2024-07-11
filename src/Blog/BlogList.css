@@ -13,3 +13,8 @@
   align-items: center;
   padding-bottom: 20px;
 }
+
+.blog-list-heading{
+  font-weight: bolder;
+  color: #22547c;
+}

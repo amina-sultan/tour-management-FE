@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import './EditService.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditService = () => {
   const { id } = useParams();
@@ -31,6 +33,10 @@ const EditService = () => {
     e.preventDefault();
     axios.put(`http://localhost:5260/api/services/${id}`, service)
       .then(response => {
+        toast.success('Review Edited successfullly!', {
+          position: "top-right",
+          autoClose: 3000,
+        });
         navigate('/serviceslist');
       })
       .catch(error => {

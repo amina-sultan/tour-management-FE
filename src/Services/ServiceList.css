@@ -23,6 +23,7 @@ body {
   color: #22547c;
   border-bottom: 2px solid #22547c;
   padding-bottom: 10px;
+  font-weight: bolder;
 }
 
 .create-service-button {
@@ -91,8 +92,89 @@ body {
 
 .delete-icon {
   margin-left: 10px;
+  color: red;
 }
 
 .action-icon:hover {
   color: #1d4469;
+}
+
+.book-now-button {
+  background-color :#22547c;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px 1px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.book-now-button:hover {
+  background-color: #45a049;
+}
+
+.ReactModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.ReactModal__Content {
+  width: 500px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  outline: none;
+  z-index: 11;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+.modal-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.close-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: white;
+  font-size: 14px;
+  width: 90%;
+  margin-left: 20px;
+}
+
+.close-button:hover {
+  background-color: #c82333;
 }

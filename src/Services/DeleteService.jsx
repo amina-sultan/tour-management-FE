@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DeleteService = () => {
   const { id } = useParams();
@@ -11,7 +13,11 @@ const DeleteService = () => {
   useEffect(() => {
     axios.delete(`http://localhost:5260/api/services/${id}`)
       .then(response => {
-        console.log(`Service with id ${id} deleted successfully`);
+        // console.log(`Service with id ${id} deleted successfully`);
+        toast.success('Service Deleted successfullly!', {
+          position: "top-right",
+          autoClose: 3000,
+        });
         setLoading(false);
         navigate('/serviceslist');
       })

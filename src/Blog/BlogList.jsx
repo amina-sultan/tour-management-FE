@@ -13,7 +13,7 @@ const BlogList = () => {
   return (
     <div className="blog-page">
       <div className="blog-entries">
-      <h1>Blogs List</h1>
+      <h1 className='blog-list-heading'>Blogs List</h1>
           <ChitralBlog />
           <HunzaBlog />
           <GilgitBlog />

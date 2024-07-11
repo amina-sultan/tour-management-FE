@@ -3,6 +3,8 @@ import axios from 'axios';
 import './CreateServiceForm.css';
 import ImageSlider from '../ImageSlider/ImageSlider';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateServiceForm = () => {
   const navigate = useNavigate();
@@ -39,6 +41,10 @@ const CreateServiceForm = () => {
         description: '',
         destinationId: '',
         userId: '',
+      });
+      toast.success('Service Created successfullly!', {
+        position: "top-right",
+        autoClose: 3000,
       });
       navigate('/serviceslist');
     } catch (error) {

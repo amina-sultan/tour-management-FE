@@ -19,14 +19,20 @@ const Login = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || 'Login failed');
+        const responseText = await response.text();
+        throw new Error(responseText || 'Login failed');
       }
 
-      const data = await response.json();
-      alert('Login successful!');
-      navigate('/home');
-      // Save the token or handle the login response as needed
+      const responseData = await response.json();
+
+      if (responseData.Token && responseData.User) {
+        localStorage.setItem('token', responseData.Token);
+        localStorage.setItem('user', JSON.stringify(responseData.User));
+        alert('Login successful!');
+        navigate('/');
+      } else {
+        throw new Error('Invalid response from server');
+      }
     } catch (error) {
       alert(error.message);
     }

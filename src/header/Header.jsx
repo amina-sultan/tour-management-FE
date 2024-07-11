@@ -25,7 +25,7 @@ const Header = () => {
             onMouseEnter={toggleDropdown}
             onMouseLeave={toggleDropdown}
           >
-            <span><Link to="/home">Home</Link></span>
+            <span><Link to="/">Home</Link></span>
             {dropdown && (
               <ul className="dropdown">
                 <li className="dropdown-option">
@@ -51,6 +51,9 @@ const Header = () => {
           </li>
           <li className="option">
             <Link to="/ReviewList">REVIEW</Link>
+          </li>
+          <li className="option">
+            <Link to="/mybookings">My Booking</Link>
           </li>
         </ul>
       </div>
