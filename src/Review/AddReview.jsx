@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AddReview.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import { toast } from 'react-toastify';
+import Modal from 'react-modal';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AddReview = () => {
   const [feedback, setFeedback] = useState('');
   const [image, setImage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -24,15 +27,13 @@ const AddReview = () => {
     e.preventDefault();
     const token = localStorage.getItem('token');
     if (!token) {
-      alert('You must be logged in to add a review.');
-      navigate('/login');
+      setShowModal(true);
       return;
     }
 
     const user = JSON.parse(localStorage.getItem('user'));
     if (!user) {
-      alert('User information not found. Please log in again.');
-      navigate('/login');
+      setShowModal(true);
       return;
     }
     try {
@@ -56,6 +57,10 @@ const AddReview = () => {
     } catch (error) {
       console.error('Error creating review:', error.response?.data || error.message);
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -84,6 +89,19 @@ const AddReview = () => {
         <button type="submit" className="submit-review-button">Submit Review</button>
       </form>
       <Footer />
+      <Modal
+        isOpen={showModal}
+        onRequestClose={closeModal}
+        className="ReactModal__Content"
+        overlayClassName="ReactModal__Overlay"
+      >
+        <h2>Please login or sign up before adding a review</h2>
+        <div className="modal-buttons">
+          <button onClick={() => navigate('/login', { state: { from: location } })}>Login</button>
+          <button onClick={() => navigate('/signup', { state: { from: location } })}>Sign Up</button>
+        </div>
+        <button className="close-button" onClick={closeModal}>Close</button>
+      </Modal>
     </div>
   );
 };

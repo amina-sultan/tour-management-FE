@@ -1,16 +1,17 @@
-// ServiceList.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Modal from 'react-modal';
 import './ServiceList.css';
 
 const ServiceList = () => {
   const [services, setServices] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [selectedServiceId, setSelectedServiceId] = useState(null);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     axios.get('http://localhost:5260/api/services')
@@ -31,11 +32,24 @@ const ServiceList = () => {
   };
 
   const handleBookNow = (id) => {
-    navigate(`/BookingForm?serviceId=${id}`);
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!token || !user) {
+      setSelectedServiceId(id);
+      setShowModal(true);
+      return;
+    }
+    navigate(`/BookingForm?serviceId=${id}&userId=${user.Id}`);
   };
 
   const handleCreateService = () => {
-    navigate('/services');
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (!token || !user) {
+      setShowModal(true);
+    } else {
+      navigate('/services');
+    }
   };
 
   const closeModal = () => {
@@ -89,10 +103,10 @@ const ServiceList = () => {
         className="ReactModal__Content"
         overlayClassName="ReactModal__Overlay"
       >
-        <h2>Please login or sign up before booking a service</h2>
+        <h2>Please login or sign up before proceeding</h2>
         <div className="modal-buttons">
-          <button onClick={() => navigate('/login')}>Login</button>
-          <button onClick={() => navigate('/signup')}>Sign Up</button>
+          <button onClick={() => navigate('/login', { state: { from: location } })}>Login</button>
+          <button onClick={() => navigate('/signup', { state: { from: location } })}>Sign Up</button>
         </div>
         <button className="close-button" onClick={closeModal}>Close</button>
       </Modal>

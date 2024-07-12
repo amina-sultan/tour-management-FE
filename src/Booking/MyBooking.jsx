@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './MyBooking.css';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MyBooking = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
-    const userId = user.Id
+    const userId = user?.Id
     const token = localStorage.getItem('token');
     if (!user || !token) {
-      alert('You must be logged in to view your bookings.');
-      navigate('/login');
+      setIsLoggedIn(false);
+      setLoading(false);
       return;
     }
     fetchBookings(userId);
@@ -39,10 +39,19 @@ const MyBooking = () => {
     });
   };
 
+  const handleLoginRedirect = () => {
+    navigate('/login');
+  };
+
   return (
     <div className="my-bookings-container">
       {loading ? (
         <p>Loading...</p>
+      ) : !isLoggedIn ? (
+        <div className="login-prompt">
+          <p>You must be logged in or sign up to view your bookings.</p>
+          <button onClick={handleLoginRedirect}>Login</button>
+        </div>
       ) : (
         <>
           {bookings.length === 0 ? (

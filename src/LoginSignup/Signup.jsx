@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './Auth.css';
 
 const Signup = () => {
@@ -31,7 +32,10 @@ const Signup = () => {
 
     const data = await response.json();
     if (response.ok) {
-      alert('Signup successful!');
+      toast.success('Review added successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+      });
       navigate('/');
       } else {
       alert('Signup failed: ' + data);
