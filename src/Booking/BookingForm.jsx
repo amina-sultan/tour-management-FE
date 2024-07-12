@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import './BookingForm.css';
 
 const BookingForm = () => {
@@ -14,7 +15,7 @@ const BookingForm = () => {
 
   const [searchParams] = useSearchParams();
   const serviceId = searchParams.get('serviceId');
-  const userId = 1;
+  const userId = searchParams.get('userId');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,6 +55,10 @@ const BookingForm = () => {
     try {
       const response = await axios.post('http://localhost:5260/api/bookings', bookingPayload);
       console.log('Booking Creation Response:', response.data);
+      toast.success('You have booked your service successfully!', {
+        position: "top-right",
+        autoClose: 3000,
+      });
       navigate('/');
     } catch (error) {
       console.error('There was an error creating the booking!', error);
@@ -93,7 +98,7 @@ const BookingForm = () => {
           />
         </div>
         <div className="form-group">
-          <label>Status:</label>
+          <label>Payment Status:</label>
           <input
             type="text"
             name="Status"

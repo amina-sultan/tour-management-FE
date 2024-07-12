@@ -1,14 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../assets/logo.svg";
-import "./header.css";
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { ReactComponent as Logo } from '../assets/logo.svg';
+import './header.css';
+import AuthContext from '../AuthContext';
 
 const Header = () => {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
   const handleClick = () => setClick(!click);
   const toggleDropdown = () => setDropdown(!dropdown);
+
+  const handleSignOut = () => {
+    logout();
+  };
 
   return (
     <div className="header">
@@ -19,9 +25,9 @@ const Header = () => {
           </Link>
         </div>
 
-        <ul className={click ? "nav-options active" : "nav-options"}>
+        <ul className={click ? 'nav-options active' : 'nav-options'}>
           <li
-            className={dropdown ? "option active" : "option"}
+            className={dropdown ? 'option active' : 'option'}
             onMouseEnter={toggleDropdown}
             onMouseLeave={toggleDropdown}
           >
@@ -58,12 +64,20 @@ const Header = () => {
         </ul>
       </div>
       <ul className="signin-up">
-        <li className="sign-in">
-          <Link to="/login" className="signup-btn">LOG-IN</Link>
-        </li>
-        <li>
-          <Link to="/signup" className="signup-btn">SIGN-UP</Link>
-        </li>
+        {!isLoggedIn ? (
+          <>
+            <li className="sign-in">
+              <Link to="/login" className="signup-btn">LOG-IN</Link>
+            </li>
+            <li>
+              <Link to="/signup" className="signup-btn">SIGN-UP</Link>
+            </li>
+          </>
+        ) : (
+          <li>
+            <button onClick={handleSignOut} className="signup-btn">SIGN-OUT</button>
+          </li>
+        )}
       </ul>
     </div>
   );

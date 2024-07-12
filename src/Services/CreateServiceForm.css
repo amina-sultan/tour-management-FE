@@ -11,7 +11,8 @@
 }
 
 .create-service-form input,
-.create-service-form textarea {
+.create-service-form textarea,
+.create-service-form select {
   width: 100%;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -32,14 +33,14 @@
 }
 
 .create-service-form .checkbox-container input[For="checkboxGuid"] {
-  margin-left: -370px;
+  margin-left: -360px;
   margin-top: 12px;
   margin-bottom: 5px;
 }
 
 .create-service-form .checkbox-container label {
   font-size: 1rem;
-  margin-left: -150px;
+  margin-left: -130px;
   margin-top: -25px;
   color: #A9A9A9;
 }
@@ -61,9 +62,11 @@
   background-color: #0056b3;
 }
 
-.service-heading{
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
+.service-heading {
+  color: #22547c;
   border-radius: 10px;
-  padding: 20px;
+  padding: 8px;
+  text-align: center;
+  font-weight: bolder;
+  grid-column: span 2;
 }
