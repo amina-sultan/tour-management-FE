@@ -1,10 +1,14 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../assets/logo.svg';
+import { toast } from 'react-toastify';
 import './header.css';
 import AuthContext from '../AuthContext';
 
 const Header = () => {
+
+  const navigate = useNavigate();
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const { isLoggedIn, logout } = useContext(AuthContext);
@@ -14,6 +18,11 @@ const Header = () => {
 
   const handleSignOut = () => {
     logout();
+    navigate('/');
+    toast.success('User Logout successfully!', {
+      position: "top-right",
+      autoClose: 3000,
+    });
   };
 
   return (
@@ -58,9 +67,11 @@ const Header = () => {
           <li className="option">
             <Link to="/ReviewList">REVIEW</Link>
           </li>
+          {isLoggedIn && (
           <li className="option">
             <Link to="/mybookings">My Booking</Link>
           </li>
+)}
         </ul>
       </div>
       <ul className="signin-up">

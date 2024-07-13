@@ -99,13 +99,10 @@ const BookingForm = () => {
         </div>
         <div className="form-group">
           <label>Payment Status:</label>
-          <input
-            type="text"
-            name="Status"
-            value={booking.Status}
-            onChange={handleChange}
-            required
-          />
+          <select name="Status" value={booking.Status} onChange={handleChange}>
+            <option value="Pending">Pending</option>
+            <option value="Done">Done</option>
+          </select>
         </div>
         <button type="submit">Book Service</button>
       </form>
