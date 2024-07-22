@@ -29,7 +29,8 @@ import AddReview from './Review/AddReview';
 import ReviewList from './Review/ReviewList';
 import EditReview from './Review/EditReview';
 import BookingForm from './Booking/BookingForm';
-import Mybooking from './Booking/MyBooking'
+import Mybooking from './Booking/MyBooking';
+import ServiceDetails from './Services/ServiceDetails';
 
 export default function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -66,6 +67,7 @@ export default function App() {
             <Route path="/editservice/:id" element={<EditService />} />
             <Route path="/editreview/:id" element={<EditReview />} />
             <Route path="/deleteservice/:id" element={<DeleteService />} />
+            <Route path="/services/:id" element={<ServiceDetails />} />
           </Routes>
           {!showChatbot && (
             <button onClick={toggleChatbot} className="chatbot-toggle-button">

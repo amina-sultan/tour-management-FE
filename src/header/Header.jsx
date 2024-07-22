@@ -67,11 +67,9 @@ const Header = () => {
           <li className="option">
             <Link to="/ReviewList">REVIEW</Link>
           </li>
-          {isLoggedIn && (
           <li className="option">
-            <Link to="/mybookings">My Booking</Link>
+            <Link to="/mybookings">Bookings</Link>
           </li>
-)}
         </ul>
       </div>
       <ul className="signin-up">
