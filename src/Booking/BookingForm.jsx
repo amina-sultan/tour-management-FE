@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './BookingForm.css';
@@ -23,7 +23,7 @@ const BookingForm = () => {
   useEffect(() => {
     const fetchCost = async () => {
       try {
-        const response = await axios.post(`http://localhost:5260/api/Bookings/calculatecost?ServiceId=${serviceId}`);
+        const response = await axiosInstance.post(`/Bookings/calculatecost?ServiceId=${serviceId}`);
         console.log('API Response:', response.data);
         setBooking(prevBooking => ({ ...prevBooking, TotalCost: response.data }));
       } catch (error) {
@@ -57,7 +57,7 @@ const BookingForm = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:5260/api/bookings', bookingPayload);
+      const response = await axiosInstance.post('/bookings', bookingPayload);
       console.log('Booking Creation Response:', response.data);
       toast.success('You have booked your service successfully! Please go to Bookings tab and check last booking to see your bookings', {
         position: "top-right",

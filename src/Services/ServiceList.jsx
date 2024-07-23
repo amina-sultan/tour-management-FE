@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -7,6 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from 'react-modal';
 import './ServiceList.css';
+import axiosInstance from '../axiosInstance';
 
 const ServiceList = () => {
   const [services, setServices] = useState([]);
@@ -15,7 +15,7 @@ const ServiceList = () => {
   const location = useLocation();
 
   useEffect(() => {
-    axios.get('http://localhost:5260/api/services')
+    axiosInstance.get('/services')
       .then(response => {
         setServices(response.data);
       })
@@ -34,7 +34,7 @@ const ServiceList = () => {
 
   const handleDelete = (id) => {
     try {
-    axios.delete(`http://localhost:5260/api/services/${id}`);
+    axiosInstance.delete(`/services/${id}`);
     toast.success('Review deleted successfullly!', {
       position: "top-right",
       autoClose: 3000,

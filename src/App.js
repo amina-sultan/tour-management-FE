@@ -21,7 +21,6 @@ import Contact from './Contact/Contact';
 import CreateServiceFormServices from './Services/CreateServiceForm';
 import ServicesList from './Services/ServiceList';
 import EditService from './Services/EditService';
-import DeleteService from './Services/DeleteService';
 import Login from './LoginSignup/Login';
 import Signup from './LoginSignup/Signup';
 import BlogList from './Blog/BlogList';
@@ -66,7 +65,6 @@ export default function App() {
             <Route path="/serviceslist" element={<ServicesList />} />
             <Route path="/editservice/:id" element={<EditService />} />
             <Route path="/editreview/:id" element={<EditReview />} />
-            <Route path="/deleteservice/:id" element={<DeleteService />} />
             <Route path="/services/:id" element={<ServiceDetails />} />
           </Routes>
           {!showChatbot && (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 import './AddReview.css';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from '../Footer/Footer';
@@ -37,7 +37,7 @@ const AddReview = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:5260/api/Reviews', {
+      const response = await axiosInstance.post('/Reviews', {
         feedback: feedback,
         userId: user.Id,
         imageUrl: image,

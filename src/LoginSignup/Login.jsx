@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './Auth.css';
 import AuthContext from '../AuthContext';
+import axiosInstance from '../axiosInstance';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5260/api/auth/login', {
+      const response = await axiosInstance.fetch('/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

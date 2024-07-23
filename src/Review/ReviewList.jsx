@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Review from './Review';
 import './ReviewList.css';
+import axiosInstance from '../axiosInstance';
 
 const ReviewList = () => {
   const [reviews, setReviews] = useState([]);
@@ -12,7 +13,7 @@ const ReviewList = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get('http://localhost:5260/api/Reviews');
+        const response = await axiosInstance.get('/Reviews');
         setReviews(response.data);
       } catch (error) {
         console.error('Error fetching reviews:', error);
@@ -24,7 +25,7 @@ const ReviewList = () => {
 
   const handleDeleteReview = async (reviewId) => {
     try {
-      await axios.delete(`http://localhost:5260/api/Reviews/${reviewId}`);
+      await axiosInstance.delete(`/Reviews/${reviewId}`);
       toast.success('Review deleted successfullly!', {
       position: "top-right",
       autoClose: 3000,

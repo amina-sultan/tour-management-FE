@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import './Auth.css';
+import axiosInstance from '../axiosInstance';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5260/api/auth/signup', {
+    const response = await axiosInstance.fetch('/auth/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
