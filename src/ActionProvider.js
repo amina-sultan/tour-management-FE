@@ -18,7 +18,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   };
 
   const handleContacts = () => {
-    const botMessage = createChatBotMessage('Please visit contact menu for the contact details.');
+    const botMessage = createChatBotMessage('You can contact us via whatsapp number +9223034441674. For further detasils please visit contact menu.');
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faMapMarkerAlt, faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import './Footer.css';
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
           <span>123 Street, City, Country</span>
         </div>
         <div>
-          <FontAwesomeIcon icon={faPhone} className="icon" />
+          <FontAwesomeIcon icon={faWhatsapp} className="icon" />
           <span><a href="https://web.whatsapp.com/send/?phone=923034441674&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank" title="Share on WhatsApp" id="action-button" class="_9vcv _advm _9scb" data-ms="{&quot;creative&quot;:&quot;link&quot;}"><span class="_advp _aeam">Continue to Chat on whatsapp</span></a></span>
         </div>
         <div>
