@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 import { useNavigate } from 'react-router-dom';
 import './MyBooking.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,7 +14,7 @@ const MyBooking = () => {
   }, []);
 
   const fetchBookings = () => {
-    axios.get('http://localhost:5260/api/Bookings/mybookings')
+    axiosInstance.get('/Bookings/mybookings')
       .then(response => {
         setBookings(response.data);
         setLoading(false);

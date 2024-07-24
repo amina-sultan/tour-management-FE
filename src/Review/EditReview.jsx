@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 import { useParams, useNavigate } from 'react-router-dom';
 import './EditReview.css';
 import { toast } from 'react-toastify';
@@ -19,7 +19,7 @@ const EditReview = () => {
   useEffect(() => {
     const fetchReview = async () => {
       try {
-        const response = await axios.get(`http://localhost:5260/api/Reviews/${id}`);
+        const response = await axiosInstance.get(`/Reviews/${id}`);
         setReview(response.data);
         adjustTextareaHeight(feedbackRef.current);
       } catch (error) {
@@ -44,7 +44,7 @@ const EditReview = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5260/api/Reviews/${id}`, review);
+      await axiosInstance.put(`/Reviews/${id}`, review);
       toast.success('Review Updated successfullly!', {
         position: "top-right",
         autoClose: 3000,

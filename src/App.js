@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Header from './header/Header';
 import { AuthProvider } from './AuthContext';
 import AboutUsPage from './AboutUsPage/AboutUsPage';
 import HomePage from './HomePage';
 import HowItWork from './HowItWork/HowItWork';
-import './styles.css';
 import Chatbot from 'react-chatbot-kit';
-import 'react-chatbot-kit/build/main.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faTimes } from '@fortawesome/free-solid-svg-icons';
 import MessageParser from './MessageParser';
 import ActionProvider from './ActionProvider';
 import config from './config';
-import './App.css';
 import WorkWithUs from './WorkWithUs/WorkWithUs';
 import Contact from './Contact/Contact';
 import CreateServiceFormServices from './Services/CreateServiceForm';
 import ServicesList from './Services/ServiceList';
 import EditService from './Services/EditService';
-import DeleteService from './Services/DeleteService';
 import Login from './LoginSignup/Login';
 import Signup from './LoginSignup/Signup';
 import BlogList from './Blog/BlogList';
@@ -31,6 +26,11 @@ import EditReview from './Review/EditReview';
 import BookingForm from './Booking/BookingForm';
 import Mybooking from './Booking/MyBooking';
 import ServiceDetails from './Services/ServiceDetails';
+import './App.css';
+import 'react-chatbot-kit/build/main.css';
+import 'react-toastify/dist/ReactToastify.css';
+import './styles.css';
+
 
 export default function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -66,7 +66,6 @@ export default function App() {
             <Route path="/serviceslist" element={<ServicesList />} />
             <Route path="/editservice/:id" element={<EditService />} />
             <Route path="/editreview/:id" element={<EditReview />} />
-            <Route path="/deleteservice/:id" element={<DeleteService />} />
             <Route path="/services/:id" element={<ServiceDetails />} />
           </Routes>
           {!showChatbot && (

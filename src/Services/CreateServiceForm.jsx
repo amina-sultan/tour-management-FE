@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../axiosInstance';
 import './CreateServiceForm.css';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -32,7 +32,7 @@ const CreateServiceForm = () => {
 
   const fetchDestinations = async () => {
     try {
-      const response = await axios.get('http://localhost:5260/api/Destination');
+      const response = await axiosInstance.get('/Destination');
       console.log('Fetched destinations:', response.data);
       setDestinations(response.data);
     } catch (error) {
@@ -59,7 +59,7 @@ const CreateServiceForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5260/api/services', formData);
+      const response = await axiosInstance.post('/services', formData);
       console.log('Service created:', response.data);
       setFormData({
         numberOfPeople: '',
